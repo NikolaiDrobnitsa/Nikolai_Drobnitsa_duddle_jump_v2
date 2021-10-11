@@ -12,7 +12,7 @@ int main()
 
 	window->show();
 	delete window;
-	return 0;
+
 
 	return 0;
 }
