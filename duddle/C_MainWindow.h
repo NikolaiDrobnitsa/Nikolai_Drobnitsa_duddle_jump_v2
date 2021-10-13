@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "C_doodle.h"
+#include "Ñ_platform.h"
 using std::string;
 class C_MainWindow : public sf::RenderWindow
 {
@@ -20,7 +21,7 @@ class C_MainWindow : public sf::RenderWindow
 	sf::Keyboard Left;
 
 	C_doodle* Player;
-
+	C_platform* platform;
 	int num = 0;
 	bool rotate = 0;
 
@@ -50,6 +51,7 @@ public:
 		}
 
 		this->Player = new C_doodle(0, 0);
+		this->platform = new C_platform(0, 0);
 	}
 	void show() {
 		while (this->isOpen())
@@ -66,9 +68,10 @@ public:
 				texture.loadFromFile("background.png", sf::IntRect(0, 0, 532, 850));
 				sf::Sprite sprite(texture);
 				this->draw(sprite);
-				this->draw(this->Player->getSprite());
+				this->draw(this->Player->getSprite_doodle());
+				this->draw(this->platform->getSprite_platform());
 				this->display();
-
+				
 
 			}
 
